@@ -1,0 +1,1 @@
+export const categories:string[]=["all","mobile","tablet","bag","shoes","foods","laptop"];
