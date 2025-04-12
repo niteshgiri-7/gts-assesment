@@ -6,7 +6,7 @@ const Layout = () => {
 
   return (
     <>
-      <nav className="h-24 w-full bg-white px-[2rem] py-[1rem] sticky top-0 z-10">
+      <nav className="h-24 w-full bg-white px-[2rem] py-[1rem]">
         <NavBar />
       </nav>
       <main className="flex-1 min-h-[80vh] bg-gray-100">

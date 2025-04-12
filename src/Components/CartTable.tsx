@@ -98,7 +98,7 @@ const CartTable = ({ cartItems }: { cartItems: CartItem[] }) => {
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md mb-4 overflow-hidden">
-      <div className="hidden sm:block overflow-x-auto">
+      <div className="sm:block hidden  overflow-x-auto">
         <table className="w-full">
           <thead className="bg-gray-50">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -126,6 +126,41 @@ const CartTable = ({ cartItems }: { cartItems: CartItem[] }) => {
             ))}
           </tbody>
         </table>
+      </div>
+
+
+      <div className="block sm:hidden space-y-4 p-4">
+        {table.getRowModel().rows.map((row) => (
+          <div key={row.id} className="border border-gray-200 rounded-md p-3 flex flex-col gap-2">
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <ProductCellValue item={row.original} />
+              </div>
+              <button
+                className="text-red-500 hover:text-red-700"
+                onClick={() => removeItem(row.original._id)}
+                aria-label="Remove item"
+              >
+                <BiX className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="grid grid-cols-3 gap-2 text-xs text-gray-900">
+              <div>
+                <span className="font-medium">Price:</span> ${row.original.price.toFixed(2)}
+              </div>
+              <div className="flex justify-center">
+                <QuantityCellValue
+                  item={row.original}
+                  onDecrement={decrement}
+                  onIncrement={increment}
+                />
+              </div>
+              <div className="text-right">
+                <span className="font-medium">Total:</span> Rs.{(row.original.price *103* row.original.quantity!).toFixed(2)}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
