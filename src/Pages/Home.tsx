@@ -67,7 +67,7 @@ const Home = () => {
           isLoading 
           ?
           <div className=" px-[3rem] flex justify-center flex-wrap gap-10 w-[95vw] mx-auto">
-           {Array.from({length:10}).map((_,index)=>(
+           {Array.from({length:11}).map((_,index)=>(
             <Shimmer key={index}/>
            ))}
           </div>
